@@ -596,6 +596,7 @@ public class HomeFurnitureController implements Controller {
   public boolean isPropertyEditable(Property property) {
     switch (property) {
       case DESCRIPTION :
+          return true;
       case PRICE :
         return false;
       case LIGHT_POWER :
@@ -954,6 +955,8 @@ public class HomeFurnitureController implements Controller {
   public Float getHeight() {
     return this.height;
   }
+
+  public Float getVolume() {return this.height * this.width * this.depth;}
   
   /**
    * Sets whether furniture proportions should be kept.
@@ -1161,6 +1164,7 @@ public class HomeFurnitureController implements Controller {
       Float width = getWidth();
       Float depth = getDepth();
       Float height = getHeight();
+      Float volume = getVolume();
       FurniturePaint paint = getPaint();
       Integer color = paint == FurniturePaint.COLORED 
           ? getColor() 
